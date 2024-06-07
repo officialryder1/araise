@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-jiv-3_&ib8aw$l=zy)7t8yia@^)jpv-j=u7!(7qv+-at*k4+ii
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -131,3 +131,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+CSRF_TRUSTED_ORIGINS = ['https://8000-idx-myapp-1717669150752.cluster-p6qcyjpiljdwusmrjxdspyb5m2.cloudworkstations.dev','http://*.127.0.0.1']
