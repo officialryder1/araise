@@ -1,0 +1,64 @@
+{% extends 'partials/base.html' %}
+
+{% block content %}
+
+
+<section class="section">
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-8">
+                <div class="box">
+                    <div class="media">
+                        <div class="media-left">
+                            <figure class="image is-128x128">
+                                <img class="is-rounded" src="https://via.placeholder.com/128" alt="Profile picture">
+                            </figure>
+                        </div>
+                        <div class="media-content">
+                            <p class="title is-4">GamerTag</p>
+                            <p class="subtitle is-6">@gamerhandle</p>
+                        </div>
+                    </div>
+
+                    <div class="content">
+                        <p><strong>Bio:</strong></p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.</p>
+                    </div>
+
+                    <div class="columns is-mobile is-multiline">
+                        <div class="column is-4">
+                            <div class="box has-text-centered">
+                                <p class="title is-5">Level</p>
+                                <p class="subtitle is-3">42</p>
+                            </div>
+                        </div>
+                        <div class="column is-4">
+                            <div class="box has-text-centered">
+                                <p class="title is-5">Achievements</p>
+                                <p class="subtitle is-3">78</p>
+                            </div>
+                        </div>
+                        <div class="column is-4">
+                            <div class="box has-text-centered">
+                                <p class="title is-5">Friends</p>
+                                <p class="subtitle is-3">123</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content">
+                        <p><strong>Recent Activity:</strong></p>
+                        <ul>
+                            <li>Played "Game Title" - 2 hours ago</li>
+                            <li>Unlocked "Achievement Name" - 3 days ago</li>
+                            <li>Joined "New Guild" - 1 week ago</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

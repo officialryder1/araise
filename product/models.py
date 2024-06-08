@@ -27,6 +27,7 @@ class Skill(models.Model):
     skill_type = models.ForeignKey(Character, on_delete=models.CASCADE, null=True, blank=True)
     rarity = models.ForeignKey(Rarity, on_delete=models.CASCADE)
     mana_point = models.PositiveIntegerField(blank=True,null=True )
+    skill = models.ManyToManyField(User, related_name='player_skill', null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -53,13 +54,14 @@ class Player_rank(models.Model):
 class Player_detail(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     character = models.ForeignKey(Character, on_delete=models.CASCADE)
-    skill = models.ManyToManyField(Skill, related_name='player_skill')
     player_rank = models.ForeignKey(Player_rank, on_delete=models.CASCADE, null=True, blank=True)
     hp = models.PositiveIntegerField(default=100)
     mana = models.PositiveIntegerField(default=100)
 
     def __str__(self):
-        return self.user
+        return str(self.user)
+    
+
 
 
     

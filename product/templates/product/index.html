@@ -1,4 +1,26 @@
 {% extends 'partials/base.html' %}
 
 {% block content %}
+    <div class="section container">
+        <h1 class="is-size-1 has-text-centered has-text-weight-bold">Select Character Type</h1><br><br>
+        <div class="" style="position: sticky; top: 0; z-index: 1000;">
+            <div class="is-flex is-justify-content-center is-align-content-center">
+                <div class="card card-content has-background-primary-05 is-hoverable mt-2">
+                  
+                    {% for val in character %}
+                        <input type="hidden" name="product_id" value="{{val.id}}">
+                        <button class="button is-rounded has-background-primary-05 has-text-primary-05-invert"
+                        hx-get="{% url 'character' val.pk %}"
+                        hx-target="#character-div"
+                        >{{val.name}}</button>
+                    {% endfor %}
+                   
+                </div>
+            </div>
+        </div>
+        <div id="character-div" class="box">
+            {% include 'partials/character_info.html' %}
+        </div>
+    </div>
+    
 {% endblock %}

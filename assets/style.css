@@ -1,0 +1,46 @@
+/* Custom styles to override Bulma's default styles */
+body {
+    background-color: #f5f5f5;
+    color: #4a4a4a;
+}
+
+.navbar, .hero, .section, .footer {
+    background-color: #ffffff;
+    color: #4a4a4a;
+}
+
+.hero.is-primary {
+    background-color: #3273dc;
+    color: #ffffff;
+}
+
+.button.is-primary {
+    background-color: #3273dc;
+    border-color: #3273dc;
+    color: #ffffff;
+}
+
+.input, .textarea, .select select {
+    background-color: #ffffff;
+    border-color: #dbdbdb;
+    color: #4a4a4a;
+}
+
+.table {
+    background-color: #ffffff;
+    color: #4a4a4a;
+    border: 1px solid #dbdbdb;
+}
+
+.has-background-primary {
+    background-color: #3273dc !important;
+}
+
+.has-background-light {
+    background-color: #f5f5f5 !important;
+}
+
+.has-text-dark {
+    color: #4a4a4a !important;
+}
+

@@ -1,0 +1,58 @@
+{% block content %}
+    {% if cha %}
+    <h1 class="is-size-1 has-text-centered has-text-primary-40 mb-3" style="font-weight: 900; letter-spacing: -0.5px;" name="character">{{cha.name}}</h1>
+    <div class="is-flex is-justify-content-center is-align-content-center">
+        <div><img src="{{ cha.image.url}}" alt="" style="height: 150px; border-radius: 50%; width: 150px;" class="m=5"></div>
+        <div class="m-5 ">
+            <p class="is-size-4 has-text-weight-semibold">{{cha.description}}</p>
+            <button class="button has-background-primary-10 has-text-primary-10-invert" hx-post="{% url 'create_player' %}" hx-target="#main-div" hx-push-url="/profile">Select</button>
+        </div>
+    </div>
+    <hr>
+    <div class="container is-widescreen">
+        <h1 class="is-size-1 has-text-centered has-text-weight-bold">Select Skill</h1>
+        <p class="is-size-6 has-text-centered has-text-primary-40 has-text-weight-medium">You can only pick just 5 skills</p>
+        <div class="is-flex is-align-content-center is-justify-content-center is-flex-wrap-wrap">
+            {% for skill in skill%}
+            <div class="card m-5">
+                <div class="card-content">
+                  <div class="media">
+                    <div class="media-left">
+                      <figure class="image is-48x48">
+                        <img
+                          src="https://bulma.io/assets/images/placeholders/96x96.png"
+                          alt="Placeholder image"
+                        />
+                      </figure>
+                    </div>
+                    <div class="media-content">
+                      <a class="title is-4">{{skill.name}} </a> | <a class="is-size-3 has-text-weight-bold">{{skill.skill_point}}</a><small> Skill point</small>
+                      <p class="subtitle is-6">{{skill.rarity}}</p>
+                    </div>
+                  </div>
+              
+                  <div class="content">
+                    <p>{{skill.description}}</p>
+                    <ul>
+                        <li>Att point: {{skill.att_point}}</li>
+                        <li>Def point: {{skill.def_point}}</li>
+                        <li>Mana point: {{skill.mana_point}}</li>
+                    </ul>
+                    <br />
+                    <small class="has-text-primary has-text-weight-bold">Card type: {{skill.skill_type}}</small><br><br>
+                    {% if user not in skill.skill.all %}
+                    <button class="button is-primary has-text-primary-light" hx-post="{% url 'add-skill' skill.pk %}" hx-swap="outerHTML" name="skill_id" value="{{skill.pk}}">Add</button>
+                    {% else %}
+                    <button class="button is-danger has-text-primary-light" hx-post="{% url 'add-skill' skill.pk %}" hx-swap="outerHTML" name="skill_id" value="{{skill.pk}}">Added</button>
+                    {% endif %}
+                    </div>
+                </div>
+                <span id="skill-message"></span>
+            </div>
+            {% endfor %}
+        </div>
+        <button class="button has-background-success-40 has-text-dark-10-invert has-text-weight-bold is-large" style="display: block; margin: auto;" hx-post="{% url 'create_player' %}" hx-target="#main-div" hx-push-url="/profile">Select</button>
+    </div>
+    {% endif %}
+
+{% endblock %}
