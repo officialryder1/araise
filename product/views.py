@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, HttpResponse, get_object_or_404
 from .models import Player_detail, Player_rank, Rank, Rarity, Skill, Character
+
 import time
 
 def home(request):
@@ -44,9 +45,26 @@ def create_player(request):
     if Player_detail.objects.filter(user=request.user).exists():
         return redirect('/')
     else:
-        create = Player_detail.objects.create(user=request.user, character=get_character)
+        create = Player_detail.objects.create(user=request.user, character=get_character, player_rank=5)
         create.save()
         return redirect('profile')
 
 def profile(request):
-    return render(request, 'product/profile.html')
+    user = request.user
+    skill = Skill.objects.filter(skill=user)
+    skill_length = Skill.objects.filter(skill=user).count()
+    player_detail = Player_detail.objects.get(user=user)
+    player_rank = Player_rank.objects.all()
+    rank = Rank.objects.all()
+    rarity = Rarity.objects.all()
+    
+
+    content = {
+        'skill':skill_length,
+        'player':player_detail,
+        'card':skill,
+
+    }
+    return render(request, 'product/profile.html', content)
+
+# write me a hello world.

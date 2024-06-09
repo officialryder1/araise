@@ -15,8 +15,11 @@
                             </figure>
                         </div>
                         <div class="media-content">
-                            <p class="title is-4">GamerTag</p>
-                            <p class="subtitle is-6">@gamerhandle</p>
+                            <p class="title is-4">{{player.user}}</p>
+                            <p class="subtitle is-6">{{player.character}}</p>
+                        </div>
+                        <div>
+                            <p class="is-size-1 has-text-weight-bold ml-5">{{player.player_rank}}<small class="is-size-5"> rank</small></p>
                         </div>
                     </div>
 
@@ -28,22 +31,31 @@
                     <div class="columns is-mobile is-multiline">
                         <div class="column is-4">
                             <div class="box has-text-centered">
-                                <p class="title is-5">Level</p>
-                                <p class="subtitle is-3">42</p>
+                                <p class="title is-5">Skills</p>
+                                <p class="subtitle is-3">{{skill}}</p>
                             </div>
                         </div>
                         <div class="column is-4">
                             <div class="box has-text-centered">
-                                <p class="title is-5">Achievements</p>
-                                <p class="subtitle is-3">78</p>
+                                <p class="title is-5">Mana</p>
+                                <p class="subtitle is-3">{{player.mana}}</p>
                             </div>
                         </div>
                         <div class="column is-4">
                             <div class="box has-text-centered">
-                                <p class="title is-5">Friends</p>
-                                <p class="subtitle is-3">123</p>
+                                <p class="title is-5">Rank</p>
+                                <p class="subtitle is-3">{{player.player_rank}}</p>
                             </div>
                         </div>
+                    </div>
+
+                    <div class="content">
+                        <p><strong>Player Skill:</strong></p>
+                        {% for card in card %}
+                        <ul>
+                            <li style="line-height: 0.4;">{{card.name}}</li>
+                        </ul>
+                        {% endfor %}
                     </div>
 
                     <div class="content">
